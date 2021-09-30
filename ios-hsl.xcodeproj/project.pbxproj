@@ -13,7 +13,52 @@
 		18455F922705F602009517B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18455F902705F602009517B0 /* Main.storyboard */; };
 		18455F942705F604009517B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18455F932705F604009517B0 /* Assets.xcassets */; };
 		18455F972705F604009517B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18455F952705F604009517B0 /* LaunchScreen.storyboard */; };
+		18455FA72705F719009517B0 /* StreamingKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 18455FA62705F719009517B0 /* StreamingKit.docc */; };
+		18455FAD2705F719009517B0 /* StreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; };
+		18455FB42705F719009517B0 /* StreamingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18455FB32705F719009517B0 /* StreamingKitTests.swift */; };
+		18455FB52705F719009517B0 /* StreamingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18455FA52705F719009517B0 /* StreamingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18455FB82705F719009517B0 /* StreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; };
+		18455FB92705F719009517B0 /* StreamingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18455FC22705F785009517B0 /* StreamingVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18455FC12705F785009517B0 /* StreamingVideoPlayer.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18455FAE2705F719009517B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18455F7F2705F602009517B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18455FA22705F719009517B0;
+			remoteInfo = StreamingKit;
+		};
+		18455FB02705F719009517B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18455F7F2705F602009517B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18455F862705F602009517B0;
+			remoteInfo = "ios-hsl";
+		};
+		18455FB62705F719009517B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18455F7F2705F602009517B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18455FA22705F719009517B0;
+			remoteInfo = StreamingKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18455FBD2705F719009517B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18455FB92705F719009517B0 /* StreamingKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		18455F872705F602009517B0 /* ios-hsl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-hsl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +69,12 @@
 		18455F932705F604009517B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18455F962705F604009517B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18455F982705F604009517B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18455FA32705F719009517B0 /* StreamingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StreamingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18455FA52705F719009517B0 /* StreamingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingKit.h; sourceTree = "<group>"; };
+		18455FA62705F719009517B0 /* StreamingKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StreamingKit.docc; sourceTree = "<group>"; };
+		18455FAC2705F719009517B0 /* StreamingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18455FB32705F719009517B0 /* StreamingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingKitTests.swift; sourceTree = "<group>"; };
+		18455FC12705F785009517B0 /* StreamingVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingVideoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +82,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18455FB82705F719009517B0 /* StreamingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18455FA02705F719009517B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18455FA92705F719009517B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18455FAD2705F719009517B0 /* StreamingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				18455F892705F602009517B0 /* ios-hsl */,
+				18455FA42705F719009517B0 /* StreamingKit */,
+				18455FB22705F719009517B0 /* StreamingKitTests */,
 				18455F882705F602009517B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				18455F872705F602009517B0 /* ios-hsl.app */,
+				18455FA32705F719009517B0 /* StreamingKit.framework */,
+				18455FAC2705F719009517B0 /* StreamingKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,7 +138,36 @@
 			path = "ios-hsl";
 			sourceTree = "<group>";
 		};
+		18455FA42705F719009517B0 /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				18455FA52705F719009517B0 /* StreamingKit.h */,
+				18455FA62705F719009517B0 /* StreamingKit.docc */,
+				18455FC12705F785009517B0 /* StreamingVideoPlayer.swift */,
+			);
+			path = StreamingKit;
+			sourceTree = "<group>";
+		};
+		18455FB22705F719009517B0 /* StreamingKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				18455FB32705F719009517B0 /* StreamingKitTests.swift */,
+			);
+			path = StreamingKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		18455F9E2705F719009517B0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18455FB52705F719009517B0 /* StreamingKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		18455F862705F602009517B0 /* ios-hsl */ = {
@@ -77,15 +177,54 @@
 				18455F832705F602009517B0 /* Sources */,
 				18455F842705F602009517B0 /* Frameworks */,
 				18455F852705F602009517B0 /* Resources */,
+				18455FBD2705F719009517B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				18455FB72705F719009517B0 /* PBXTargetDependency */,
 			);
 			name = "ios-hsl";
 			productName = "ios-hsl";
 			productReference = 18455F872705F602009517B0 /* ios-hsl.app */;
 			productType = "com.apple.product-type.application";
+		};
+		18455FA22705F719009517B0 /* StreamingKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18455FBA2705F719009517B0 /* Build configuration list for PBXNativeTarget "StreamingKit" */;
+			buildPhases = (
+				18455F9E2705F719009517B0 /* Headers */,
+				18455F9F2705F719009517B0 /* Sources */,
+				18455FA02705F719009517B0 /* Frameworks */,
+				18455FA12705F719009517B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreamingKit;
+			productName = StreamingKit;
+			productReference = 18455FA32705F719009517B0 /* StreamingKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		18455FAB2705F719009517B0 /* StreamingKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18455FBE2705F719009517B0 /* Build configuration list for PBXNativeTarget "StreamingKitTests" */;
+			buildPhases = (
+				18455FA82705F719009517B0 /* Sources */,
+				18455FA92705F719009517B0 /* Frameworks */,
+				18455FAA2705F719009517B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18455FAF2705F719009517B0 /* PBXTargetDependency */,
+				18455FB12705F719009517B0 /* PBXTargetDependency */,
+			);
+			name = StreamingKitTests;
+			productName = StreamingKitTests;
+			productReference = 18455FAC2705F719009517B0 /* StreamingKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +238,13 @@
 				TargetAttributes = {
 					18455F862705F602009517B0 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					18455FA22705F719009517B0 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					18455FAB2705F719009517B0 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 18455F862705F602009517B0;
 					};
 				};
 			};
@@ -116,6 +262,8 @@
 			projectRoot = "";
 			targets = (
 				18455F862705F602009517B0 /* ios-hsl */,
+				18455FA22705F719009517B0 /* StreamingKit */,
+				18455FAB2705F719009517B0 /* StreamingKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +276,20 @@
 				18455F972705F604009517B0 /* LaunchScreen.storyboard in Resources */,
 				18455F942705F604009517B0 /* Assets.xcassets in Resources */,
 				18455F922705F602009517B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18455FA12705F719009517B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18455FAA2705F719009517B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +306,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18455F9F2705F719009517B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18455FC22705F785009517B0 /* StreamingVideoPlayer.swift in Sources */,
+				18455FA72705F719009517B0 /* StreamingKit.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18455FA82705F719009517B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18455FB42705F719009517B0 /* StreamingKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18455FAF2705F719009517B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18455FA22705F719009517B0 /* StreamingKit */;
+			targetProxy = 18455FAE2705F719009517B0 /* PBXContainerItemProxy */;
+		};
+		18455FB12705F719009517B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18455F862705F602009517B0 /* ios-hsl */;
+			targetProxy = 18455FB02705F719009517B0 /* PBXContainerItemProxy */;
+		};
+		18455FB72705F719009517B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18455FA22705F719009517B0 /* StreamingKit */;
+			targetProxy = 18455FB62705F719009517B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		18455F902705F602009517B0 /* Main.storyboard */ = {
@@ -285,6 +482,7 @@
 		18455F9C2705F604009517B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +510,7 @@
 		18455F9D2705F604009517B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +535,108 @@
 			};
 			name = Release;
 		};
+		18455FBB2705F719009517B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		18455FBC2705F719009517B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		18455FBF2705F719009517B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-hsl.app/ios-hsl";
+			};
+			name = Debug;
+		};
+		18455FC02705F719009517B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-hsl.app/ios-hsl";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -353,6 +654,24 @@
 			buildConfigurations = (
 				18455F9C2705F604009517B0 /* Debug */,
 				18455F9D2705F604009517B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18455FBA2705F719009517B0 /* Build configuration list for PBXNativeTarget "StreamingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18455FBB2705F719009517B0 /* Debug */,
+				18455FBC2705F719009517B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18455FBE2705F719009517B0 /* Build configuration list for PBXNativeTarget "StreamingKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18455FBF2705F719009517B0 /* Debug */,
+				18455FC02705F719009517B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
