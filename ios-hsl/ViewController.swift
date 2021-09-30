@@ -23,7 +23,13 @@ class ViewController: UIViewController {
         setupVideoPlayer()
         
         textField.text = "https://dev-livestream.gviet.vn/manifest/VTV1-PACKAGE/master.m3u8"
+        
     }
+    
+    override func observeValue(forKeyPath: String?, of: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if forKeyPath != "timedMetadata" { return }
+            videoPlayer.handleTimedMetadata(of: of)
+        }
     
     func setupVideoPlayer() {
         videoPlayer.add(to: greyView)
@@ -36,6 +42,9 @@ class ViewController: UIViewController {
             print("Error parsing URL")
             return }
         videoPlayer.play(url: url)
+        
+        print("play")
+        videoPlayer.playerItem.addObserver(self, forKeyPath: "timedMetadata", options: [], context: nil)
     }
     
     @IBAction func pauseButtonTapped() {

@@ -15,6 +15,8 @@ public class StreamingVideoPlayer {
     
     private let avPlayer = AVPlayer()
     
+    public var playerItem: AVPlayerItem!
+    
     private lazy var playerView: UIView = {
         let view = playerViewController.view!
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +24,16 @@ public class StreamingVideoPlayer {
         return view
     }()
     
-    public init() {}
+    public init() {
+        printTimeStamp()
+    }
+    
+    func printTimeStamp() {
+         print("▼⎺▼⎺▼⎺▼⎺▼⎺▼⎺▼⎺▼")
+         print("PROGRAM-DATE-TIME: ")
+         print(playerItem?.currentDate() ?? "No timeStamp")
+         print("▲_▲_▲_▲_▲_▲_▲_▲\n\n")
+     }
     
     // MARK - Public interface
     
@@ -38,7 +49,8 @@ public class StreamingVideoPlayer {
     
     public func play(url: URL) {
         let asset = AVAsset(url: url)
-        let playerItem = AVPlayerItem(asset: asset)
+        playerItem = AVPlayerItem(asset: asset)
+
         avPlayer.replaceCurrentItem(with: playerItem)
         
         playerViewController.player = avPlayer
@@ -47,6 +59,21 @@ public class StreamingVideoPlayer {
     
     public func pause() {
         avPlayer.pause()
+    }
+    
+    
+    public func handleTimedMetadata(of: Any?) {
+        printTimeStamp()
+
+        let data: AVPlayerItem = of as! AVPlayerItem
+
+        guard let timedMetadata = data.timedMetadata else { return }
+
+        for item in timedMetadata {
+            if item.key as! String == "TXXX" {
+                print("other data: \(item.value!)")
+            }
+        }
     }
     
 }
