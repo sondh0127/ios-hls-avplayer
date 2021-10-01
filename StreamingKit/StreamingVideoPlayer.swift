@@ -29,10 +29,8 @@ public class StreamingVideoPlayer {
     }
     
     func printTimeStamp() {
-         print("▼⎺▼⎺▼⎺▼⎺▼⎺▼⎺▼⎺▼")
          print("PROGRAM-DATE-TIME: ")
          print(playerItem?.currentDate() ?? "No timeStamp")
-         print("▲_▲_▲_▲_▲_▲_▲_▲\n\n")
      }
     
     // MARK - Public interface
@@ -61,19 +59,29 @@ public class StreamingVideoPlayer {
         avPlayer.pause()
     }
     
+    func getString(fromObject jsonObject: Any) -> String? {
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed),
+           let string = String(data: data, encoding: .utf8) {
+            return string
+        }
+        return nil
+    }
     
-    public func handleTimedMetadata(of: Any?) {
+    
+    public func handleTimedMetadata(of: Any?) -> Any? {
         printTimeStamp()
 
         let data: AVPlayerItem = of as! AVPlayerItem
 
-        guard let timedMetadata = data.timedMetadata else { return }
+        guard let timedMetadata = data.timedMetadata else { return "" }
 
         for item in timedMetadata {
             if item.key as! String == "TXXX" {
                 print("ID3 data: \(item.value!)")
+                return item.value
             }
         }
+        return nil
     }
     
 }

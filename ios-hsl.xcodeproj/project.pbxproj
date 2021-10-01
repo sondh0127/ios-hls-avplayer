@@ -17,9 +17,10 @@
 		18455FAD2705F719009517B0 /* StreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; };
 		18455FB42705F719009517B0 /* StreamingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18455FB32705F719009517B0 /* StreamingKitTests.swift */; };
 		18455FB52705F719009517B0 /* StreamingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18455FA52705F719009517B0 /* StreamingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		18455FB82705F719009517B0 /* StreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; };
-		18455FB92705F719009517B0 /* StreamingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18455FC22705F785009517B0 /* StreamingVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18455FC12705F785009517B0 /* StreamingVideoPlayer.swift */; };
+		187E3A3A27071DC8008BC4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18455F8E2705F602009517B0 /* ViewController.swift */; };
+		187E3A3C27071E0E008BC4F8 /* StreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; };
+		187E3A3D27071E0E008BC4F8 /* StreamingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18455FA32705F719009517B0 /* StreamingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 			remoteGlobalIDString = 18455F862705F602009517B0;
 			remoteInfo = "ios-hsl";
 		};
-		18455FB62705F719009517B0 /* PBXContainerItemProxy */ = {
+		187E3A3E27071E0E008BC4F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18455F7F2705F602009517B0 /* Project object */;
 			proxyType = 1;
@@ -47,13 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		18455FBD2705F719009517B0 /* Embed Frameworks */ = {
+		187E3A4027071E0E008BC4F8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18455FB92705F719009517B0 /* StreamingKit.framework in Embed Frameworks */,
+				187E3A3D27071E0E008BC4F8 /* StreamingKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18455FB82705F719009517B0 /* StreamingKit.framework in Frameworks */,
+				187E3A3C27071E0E008BC4F8 /* StreamingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +112,7 @@
 				18455FA42705F719009517B0 /* StreamingKit */,
 				18455FB22705F719009517B0 /* StreamingKitTests */,
 				18455F882705F602009517B0 /* Products */,
+				187E3A3B27071E0E008BC4F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +158,13 @@
 			path = StreamingKitTests;
 			sourceTree = "<group>";
 		};
+		187E3A3B27071E0E008BC4F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -177,12 +186,12 @@
 				18455F832705F602009517B0 /* Sources */,
 				18455F842705F602009517B0 /* Frameworks */,
 				18455F852705F602009517B0 /* Resources */,
-				18455FBD2705F719009517B0 /* Embed Frameworks */,
+				187E3A4027071E0E008BC4F8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				18455FB72705F719009517B0 /* PBXTargetDependency */,
+				187E3A3F27071E0E008BC4F8 /* PBXTargetDependency */,
 			);
 			name = "ios-hsl";
 			productName = "ios-hsl";
@@ -310,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187E3A3A27071DC8008BC4F8 /* ViewController.swift in Sources */,
 				18455FC22705F785009517B0 /* StreamingVideoPlayer.swift in Sources */,
 				18455FA72705F719009517B0 /* StreamingKit.docc in Sources */,
 			);
@@ -336,10 +346,10 @@
 			target = 18455F862705F602009517B0 /* ios-hsl */;
 			targetProxy = 18455FB02705F719009517B0 /* PBXContainerItemProxy */;
 		};
-		18455FB72705F719009517B0 /* PBXTargetDependency */ = {
+		187E3A3F27071E0E008BC4F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 18455FA22705F719009517B0 /* StreamingKit */;
-			targetProxy = 18455FB62705F719009517B0 /* PBXContainerItemProxy */;
+			targetProxy = 187E3A3E27071E0E008BC4F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -482,11 +492,11 @@
 		18455F9C2705F604009517B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CT3YRM3JD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-hsl/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,6 +504,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,11 +521,11 @@
 		18455F9D2705F604009517B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CT3YRM3JD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-hsl/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -522,6 +533,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,6 +559,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,6 +589,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,8 +611,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -608,6 +623,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,8 +636,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,6 +648,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sondh0127.StreamingKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

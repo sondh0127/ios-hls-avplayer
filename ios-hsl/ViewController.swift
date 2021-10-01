@@ -10,31 +10,7 @@ import StreamingKit
 import WebKit
 
 class ViewController: UIViewController, WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        
-        if let bodyString = message.body as? String {
-            let data = Data(bodyString.utf8)
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    guard let msg = json["msg"] as? String else {
-                        return
-                    }
-                    print("msg", msg)
-                    showAlert(body: msg)
-                }
-            } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
-            }
-        }
-    }
     
-    func showAlert(body: Any) {
-        let content = "\(body)"
-        let alertController = UIAlertController(title: "Message from Webview", message: content, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        let window = UIApplication.shared.windows.first
-        window?.rootViewController?.present(alertController, animated: true)
-    }
     
     
     
@@ -57,12 +33,63 @@ class ViewController: UIViewController, WKScriptMessageHandler {
         let url = URL(string: "https://dev-livestream.gviet.vn/ilp-statics/v1.3.0/ios-interactive.html")
         let request = URLRequest(url: url!)
         webView.load(request)
-        webView.configuration.userContentController.add(self, name: "observer")
+        webView.configuration.userContentController.add(self, name: "parent")
+    }
+    
+    func onReady() {
+        postMessage("onReady", jsonObject: [
+            "id": "uuid"
+        ])
+    }
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        
+        if let bodyString = message.body as? String {
+            let data = Data(bodyString.utf8)
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    guard let type = json["type"] as? String else { return }
+                    let payload = json["payload"] as? [String: Any] ?? nil
+                    print("payload", payload)
+                    switch type {
+                    case "onReady":
+                        onReady()
+                    case "onShowOverlay":
+                        print("onShowOverlay")
+                    case "onHideOverlay":
+                        print("onHideOverlay")
+                    case "onChangeOverlayRects":
+                        print("onChangeOverlayRects")
+                    case "onKeyDown":
+                        print("onKeyDown")
+                    default:
+                        print("default")
+                    }
+                    showAlert(body: bodyString)
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func showAlert(body: Any) {
+        let content = "\(body)"
+        let alertController = UIAlertController(title: "Message from Webview", message: content, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        let window = UIApplication.shared.windows.first
+        window?.rootViewController?.present(alertController, animated: true)
     }
     
     override func observeValue(forKeyPath: String?, of: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if forKeyPath != "timedMetadata" { return }
-        videoPlayer.handleTimedMetadata(of: of)
+        let id3Metadata = videoPlayer.handleTimedMetadata(of: of)
+        
+        let metadata = getJSON(fromString: id3Metadata as! String)
+        postMessage("hlsFragShowingMetadata", jsonObject: [
+            "value": metadata
+        ])
+        
     }
     
     func setupVideoPlayer() {
@@ -98,15 +125,33 @@ class ViewController: UIViewController, WKScriptMessageHandler {
             "param2": "\(param2)"
         ]
         
-        guard let json = try? JSONEncoder().encode(data),
-              let jsonString = String(data: json, encoding: .utf8) else {
-                  return
-              }
-        
-        let javascript = "window.changeButtonClass('\(jsonString)')"
+        postMessage("changeButtonClass", jsonObject: data)
+    }
+
+    
+    func postMessage(_ functionName: String, jsonObject: Any) {
+        let jsonString = getString(fromObject: jsonObject)!
+        let javascript = "window.\(functionName)('\(jsonString)')"
         webView.evaluateJavaScript(javascript, completionHandler: nil)
     }
     
+    func getJSON(fromString jsonString:String) -> Any? {
+        if let data = jsonString.removingPercentEncoding?.data(using: .utf8),
+           let jsonObject = try? JSONSerialization.jsonObject(with:data , options: .allowFragments) {
+            return jsonObject
+        }
+        return nil
+    }
+    
+    func getString(fromObject jsonObject: Any) -> String? {
+        if let data = try? JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed),
+           let string = String(data: data, encoding: .utf8) {
+            return string
+        }
+        return nil
+    }
     
 }
+
+
 
