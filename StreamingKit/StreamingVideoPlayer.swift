@@ -71,7 +71,7 @@ public class StreamingVideoPlayer {
 
         for item in timedMetadata {
             if item.key as! String == "TXXX" {
-                print("other data: \(item.value!)")
+                print("ID3 data: \(item.value!)")
             }
         }
     }
