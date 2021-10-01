@@ -8,8 +8,10 @@
 import UIKit
 import StreamingKit
 import WebKit
+import AVKit
 
-class ViewController: UIViewController, WKScriptMessageHandler {
+class ViewController: UIViewController, WKScriptMessageHandler, AVPlayerItemMetadataOutputPushDelegate, AVPlayerItemMetadataCollectorPushDelegate  {
+
     
     
     
@@ -22,6 +24,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     
     private let videoPlayer = StreamingVideoPlayer()
     
+    // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,6 +45,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
         ])
     }
     
+    // MARK: - WKScriptMessageHandler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
         if let bodyString = message.body as? String {
@@ -72,6 +76,40 @@ class ViewController: UIViewController, WKScriptMessageHandler {
             }
         }
     }
+    
+    // MARK: - AVPlayerItemMetadataOutputPushDelegate
+    
+    func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?) {
+        if let item = groups.first?.items.first
+        {
+            item.value(forKeyPath: #keyPath(AVMetadataItem.value))
+            let metadataValue = (item.value(forKeyPath: #keyPath(AVMetadataItem.value))!)
+            print("Metadata value: \n \(metadataValue)")
+            let metadata = getJSON(fromString: metadataValue as! String)
+            postMessage("hlsFragShowingMetadata", jsonObject: [
+                "value": metadata
+            ])
+        } else {
+            print("MetaData Error")
+        }
+    }
+    
+    // MARK: AVPlayerItemMetadataCollectorPushDelegate
+    func metadataCollector(_ metadataCollector: AVPlayerItemMetadataCollector, didCollect metadataGroups: [AVDateRangeMetadataGroup], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet) {
+        if let item = metadataGroups.first?.items.first
+        {
+            item.value(forKeyPath: #keyPath(AVMetadataItem.value))
+            let metadataValue = (item.value(forKeyPath: #keyPath(AVMetadataItem.value))!)
+            print("Metadata value: \n \(metadataValue)")
+            let metadata = getJSON(fromString: metadataValue as! String)
+            postMessage("hlsFragShowingMetadata", jsonObject: [
+                "value": metadata
+            ])
+        } else {
+            print("MetaData Error")
+        }
+    }
+    
     
     func showAlert(body: Any) {
         let content = "\(body)"
@@ -105,7 +143,17 @@ class ViewController: UIViewController, WKScriptMessageHandler {
         videoPlayer.play(url: url)
         
         print("play")
-        videoPlayer.playerItem.addObserver(self, forKeyPath: "timedMetadata", options: [], context: nil)
+//        videoPlayer.playerItem.addObserver(self, forKeyPath: "timedMetadata", options: [], context: nil)
+        let metadataOutput = AVPlayerItemMetadataOutput(identifiers: nil)
+//      instantShow
+//        metadataOutput.advanceIntervalForDelegateInvocation = TimeInterval(Int.max)
+        metadataOutput.setDelegate(self, queue: DispatchQueue.main)
+        
+        let metadataCollector = AVPlayerItemMetadataCollector()
+        
+        metadataCollector.setDelegate(self, queue: DispatchQueue.main)
+        
+        videoPlayer.playerItem.add(metadataOutput)
     }
     
     @IBAction func pauseButtonTapped() {

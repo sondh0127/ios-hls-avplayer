@@ -50,7 +50,6 @@ public class StreamingVideoPlayer {
         playerItem = AVPlayerItem(asset: asset)
 
         avPlayer.replaceCurrentItem(with: playerItem)
-        
         playerViewController.player = avPlayer
         playerViewController.player?.play()
     }
